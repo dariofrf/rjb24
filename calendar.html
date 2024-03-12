@@ -615,10 +615,11 @@
         document.querySelectorAll(".location").forEach((locationElement) => {
           locationElement.addEventListener("click", function () {
             const locationName = this.textContent; // Get the location name from the element
-            const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+            // Construct the URL for Google Maps in driving mode with the current location as the origin and the specified location as the destination
+            const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=${encodeURIComponent(
               locationName
-            )}`;
-            window.open(googleMapsUrl, "_blank"); // Open Google Maps in a new tab with the location searched
+            )}&travelmode=driving`;
+            window.open(googleMapsUrl, "_blank"); // Open Google Maps in a new tab with the specified route
           });
 
           // Append a random emoji to each location name
