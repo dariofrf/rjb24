@@ -52,7 +52,7 @@ body {
 }
 .days li span {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 25px;
   color: #ffa200; /* Keep the accent color */
 }
 .days li .location {
