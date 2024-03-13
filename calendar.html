@@ -11,6 +11,18 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js"></script>
     <title>RJB Calendário</title>
+    <script
+      src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
+      async=""
+    ></script>
+    <script>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      OneSignalDeferred.push(function (OneSignal) {
+        OneSignal.init({
+          appId: "bf5aa951-e730-4ace-806c-2e59939f59c3",
+        });
+      });
+    </script>
   </head>
   <body>
     <img src="https://i.imgur.com/qHD51h7.png" alt="Logo" class="logo" />

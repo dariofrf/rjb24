@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
+  OneSignal.push(function () {
+    OneSignal.init({
+      appId: "bf5aa951-e730-4ace-806c-2e59939f59c3",
+    });
+    // Shows a prompt asking the user for permission
+    OneSignal.showNativePrompt();
+  });
+
   document.querySelectorAll(".days li").forEach((li) => {
     if (li.querySelector("span.no-location")) {
       li.classList.add("no-location");
