@@ -1,10 +1,11 @@
 const CACHE_NAME = "v1";
 const urlsToCache = [
-  "/",
-  "/calendar.html",
-  "/styles.css", // Add path to your CSS file if you have
-  "/script.js", // Add path to your JavaScript file if you have
-  "/icon.png",
+  "/rjb24",
+  "/rjb24/calendar.html",
+  "/rjb24/styles.css", // Add path to your CSS file if you have
+  "/rjb24/script.js", // Add path to your JavaScript file if you have
+  "/rjb24/icon.png",
+  "/rjb24/manifest.json",
 ];
 
 self.addEventListener("install", (event) => {
