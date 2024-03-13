@@ -29,7 +29,7 @@
       "src": "/rjb24/screenshot.png",
       "sizes": "320x640",
       "type": "image/png",
-      "form_factor": "mobile",
+      "form_factor": "narrow",
       "label": "Mobile Application"
     }
   ]
