@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  document.querySelectorAll(".calendar").forEach((locationElement) => {
+    locationElement.classList.add("fade-in");
+  });
+
   // Define an array of emojis
   const emojis = [
     "🌍",
