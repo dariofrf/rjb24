@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+  var audio = new Audio("/rjb24/intro.mp3");
+  audio.play();
+
   document.querySelectorAll(".days li").forEach((li) => {
     if (li.querySelector("span.no-location")) {
       li.classList.add("no-location");
