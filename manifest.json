@@ -3,12 +3,12 @@
   "name": "RJB Calendário",
   "icons": [
     {
-      "src": "https://i.imgur.com/qHD51h7.png",
+      "src": "/icon.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "https://i.imgur.com/qHD51h7.png",
+      "src": "/icon.png",
       "type": "image/png",
       "sizes": "512x512"
     }
