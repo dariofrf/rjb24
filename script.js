@@ -1,6 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var audio = new Audio("/rjb24/intro.mp3");
-  audio.play();
+  document.body.addEventListener("click", function playSoundOnce() {
+    var audio = new Audio("/rjb24/intro.mp3");
+    audio
+      .play()
+      .then(() => {
+        console.log("Audio played successfully");
+      })
+      .catch((error) => {
+        console.error("Audio playback failed:", error);
+      });
+    // Remove the event listener after the audio has been played to prevent replaying
+    document.body.removeEventListener("click", playSoundOnce);
+  });
 
   document.querySelectorAll(".days li").forEach((li) => {
     if (li.querySelector("span.no-location")) {
