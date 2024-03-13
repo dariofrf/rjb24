@@ -24,6 +24,13 @@
       "type": "image/png",
       "form_factor": "wide",
       "label": "Application"
+    },
+    {
+      "src": "/rjb24/mobile_screen.png",
+      "sizes": "320x640",
+      "type": "image/png",
+      "form_factor": "mobile",
+      "label": "Mobile Application"
     }
   ]
 }
