@@ -2,11 +2,9 @@ const CACHE_NAME = 'v1';
 const urlsToCache = [
   '/',
   '/calendar.html',
-  '/styles/main.css', // Add path to your CSS file if you have
-  '/scripts/main.js', // Add path to your JavaScript file if you have
-  '/path/to/icon-192.png',
-  '/path/to/icon-512.png',
-  // Add other resources you want to cache
+  '/styles.css', // Add path to your CSS file if you have
+  '/script.js', // Add path to your JavaScript file if you have
+  'https://i.imgur.com/qHD51h7.png',
 ];
 
 self.addEventListener('install', event => {
