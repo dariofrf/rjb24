@@ -19,14 +19,14 @@
   "background_color": "#121212",
   "screenshots": [
     {
-      "src": "/rjb24/screen.png",
+      "src": "/rjb24/screenshot.png",
       "sizes": "640x320",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Application"
     },
     {
-      "src": "/rjb24/mobile_screen.png",
+      "src": "/rjb24/screenshot.png",
       "sizes": "320x640",
       "type": "image/png",
       "form_factor": "mobile",
