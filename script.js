@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".location").forEach((locationElement) => {
     locationElement.addEventListener("click", function (event) {
       event.preventDefault(); // Prevent the default action, which is redundant here but shown for completeness
-      const locationName = this.textContent.trim(); // Ensure to trim the textContent to remove the added emoji and spaces
+      const locationName = this.textContent; // Ensure to trim the textContent to remove the added emoji and spaces
       // Construct the URL for Google Maps in driving mode with the current location as the origin (implicitly) and the specified location as the destination
       const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
         locationName.split(" ")[0] // Assuming the location name is the first part before the emoji
