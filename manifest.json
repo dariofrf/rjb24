@@ -6,11 +6,6 @@
       "src": "icon.png",
       "type": "image/png",
       "sizes": "192x192"
-    },
-    {
-      "src": "icon.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
   "start_url": "/rjb24/calendar.html",
@@ -19,7 +14,7 @@
   "background_color": "#121212",
   "screenshots": [
     {
-      "src": "/rjb24/screenshot.png",
+      "src": "/rjb24/screenshot_wide.png",
       "sizes": "640x320",
       "type": "image/png",
       "form_factor": "wide",
