@@ -85,7 +85,7 @@ body {
 .logo {
   display: block;
   margin: 0 auto; /* Center the logo horizontally */
-  max-width: 70%; /* Ensure it's responsive and doesn't overflow the screen width */
+  max-width: 95%; /* Ensure it's responsive and doesn't overflow the screen width */
   height: auto; /* Maintain aspect ratio */
   margin-top: 30px;
 }
