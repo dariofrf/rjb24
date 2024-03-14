@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const locationName = this.textContent; // Ensure to trim the textContent to remove the added emoji and spaces
       // Construct the URL for Google Maps in driving mode with the current location as the origin (implicitly) and the specified location as the destination
       const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-        locationName.split(" ")[0] // Assuming the location name is the first part before the emoji
+        locationName // Assuming the location name is the first part before the emoji
       )}&travelmode=driving`;
       window.open(googleMapsUrl, "_blank"); // Open Google Maps in a new tab with the specified route
     });
