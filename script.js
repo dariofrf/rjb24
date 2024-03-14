@@ -174,6 +174,8 @@ document.addEventListener("DOMContentLoaded", function () {
     "🫸",
   ];
 
+  const emoji = ["📍"];
+
   document.querySelectorAll(".location").forEach((locationElement) => {
     locationElement.addEventListener("click", function (event) {
       event.preventDefault(); // Prevent the default action, which is redundant here but shown for completeness

@@ -125,6 +125,11 @@ body {
   animation: slideDown 2s ease-out forwards;
 }
 
+.done {
+  background-color: #fff;
+  opacity: 0.5;
+}
+
 @media (min-width: 1024px) {
   /* Adjust this breakpoint as needed */
   .desktop-container {
