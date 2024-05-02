@@ -144,7 +144,6 @@ body {
     grid-auto-rows: 50px; /* Reduce row height */
   }
   .days li {
-    padding: 15px; /* Increased padding inside each day */
     align-items: center; /* Align items to the center */
     flex-direction: row; /* Change direction to row */
     justify-content: space-between; /* Distribute space between day and location */
@@ -171,4 +170,13 @@ body {
   .weekdays {
     display: none; /* Hide weekdays on mobile */
   }
+}
+
+.cancel-overlay {
+  background-color: rgba(255, 0, 0, 0.5); /* Red background with opacity */
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  border-radius: 8px;
 }
