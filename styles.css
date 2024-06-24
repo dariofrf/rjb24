@@ -175,7 +175,7 @@ body {
 .cancel-overlay {
   background-color: rgba(255, 0, 0, 0.5); /* Red background with opacity */
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   padding: 0 10px;
   border-radius: 8px;
