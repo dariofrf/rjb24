@@ -207,4 +207,31 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     });
   }
+
+  const dayElement = document.getElementById("day-13");
+
+  function createFireEmoji() {
+    const emoji = document.createElement("div");
+    emoji.classList.add("emoji");
+    emoji.textContent = "🔥";
+
+    // Randomize size and position
+    const size = Math.random() * 20 + 30; // Size between 10px and 30px
+    const position = Math.random() * 100; // Position between 0% and 100%
+    const duration = Math.random() * 2 + 1; // Duration between 1s and 3s
+
+    emoji.style.fontSize = `${size}px`;
+    emoji.style.left = `${position}%`;
+    emoji.style.animation = `emoji-grow-fade ${duration}s infinite`;
+
+    dayElement.appendChild(emoji);
+
+    // Remove emoji after animation ends to prevent overflow
+    setTimeout(() => {
+      dayElement.removeChild(emoji);
+    }, duration * 1000);
+  }
+
+  // Create multiple fire emojis at random intervals
+  setInterval(createFireEmoji, 500);
 });
