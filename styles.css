@@ -220,3 +220,60 @@ body {
     transform: scale(1);
   }
 }
+
+@keyframes fly {
+  0% {
+    left: -10%;
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
+}
+
+.nyan-cat {
+  position: fixed;
+  top: 0;
+  left: -10%;
+  width: 100px; /* Increased size */
+  height: auto;
+  z-index: 1000;
+  animation: fly 5s linear infinite;
+}
+
+.nyan-cat img {
+  width: 100%;
+  height: auto;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+body::before {
+  content: "";
+  position: fixed; /* Fix the background to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHhuOHU2OTVyaXVuNnBuYWF6MXA2aTFoenY3MmRjamdmcWNuczdrOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/39lWTXEdmp4qnZtHIK/giphy.webp")
+    no-repeat center center fixed;
+  background-size: cover;
+  opacity: 0.15; /* Adjust the opacity as needed */
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  color: black; /* Adjust text color for better visibility */
+  padding: 20px; /* Add some padding for better readability */
+}

@@ -234,4 +234,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Create multiple fire emojis at random intervals
   setInterval(createFireEmoji, 500);
+
+  const nyanCatContainer = document.getElementById("nyan-cat-container");
+
+  function createNyanCat() {
+    const nyanCat = document.createElement("div");
+    nyanCat.classList.add("nyan-cat");
+
+    const img = document.createElement("img");
+    img.src = "https://media.giphy.com/media/2f9jZ01I1XoF2/giphy.gif"; // Transparent background Nyan Cat GIF
+
+    nyanCat.appendChild(img);
+
+    // Randomize the vertical position
+    const position = Math.random() * 100; // Position between 0% and 100%
+    nyanCat.style.top = `${position}%`;
+
+    nyanCatContainer.appendChild(nyanCat);
+
+    // Remove Nyan Cat after animation ends to prevent overflow
+    setTimeout(() => {
+      nyanCatContainer.removeChild(nyanCat);
+    }, 5000); // Match the duration of the fly animation
+  }
+
+  // Create multiple Nyan Cats at random intervals
+  setInterval(createNyanCat, 2000);
 });
