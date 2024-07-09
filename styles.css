@@ -223,29 +223,46 @@ body {
 
 @keyframes fly {
   0% {
-    left: -10%;
+    top: 110%;
     opacity: 1;
   }
   50% {
     opacity: 1;
   }
   100% {
-    left: 110%;
+    top: -10%;
     opacity: 0;
   }
 }
 
 .nyan-cat {
   position: fixed;
-  top: 0;
-  left: -10%;
-  width: 100px; /* Increased size */
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px; /* Increased size */
   height: auto;
   z-index: 1000;
-  animation: fly 5s linear infinite;
+  animation: fly 120s linear infinite;
 }
 
 .nyan-cat img {
-  width: 100%;
+  width: 50%;
   height: auto;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.cancel-overlay {
+  animation: blink 2s infinite;
 }
