@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const dayElement = document.getElementById("day-13");
+  const dayElement = document.getElementById("day-11");
 
   function createFireEmoji() {
     const emoji = document.createElement("div");
