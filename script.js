@@ -1,264 +1,407 @@
-document.addEventListener("DOMContentLoaded", function () {
+const MONTHS = [
+  "ABRIL",
+  "MAIO",
+  "JUNHO",
+  "JULHO",
+  "AGOSTO",
+  // "SETEMBRO",
+  // "OUTUBRO",
+];
+
+const WEEKDAYS = ["SEG", "TER", "QUA", "QUI", "SEX", "SÁB", "DOM"];
+
+const EMOJIS = [
+  "🌍",
+  "🌟",
+  "🚀",
+  "🌈",
+  "⚡",
+  "🔥",
+  "🎉",
+  "💫",
+  "✨",
+  "🌴",
+  "🍀",
+  "🌺",
+  "🌻",
+  "🍄",
+  "🌵",
+  "🍁",
+  "🎄",
+  "❄️",
+  "🎃",
+  "👻",
+  "🐉",
+  "🦄",
+  "🧜‍♀️",
+  "🐳",
+  "🦋",
+  "🐝",
+  "🍒",
+  "🍑",
+  "🥥",
+  "🍕",
+  "🍣",
+  "🍺",
+  "🥂",
+  "🚗",
+  "🛸",
+  "🏰",
+  "🗽",
+  "🎡",
+  "🚀",
+  "⛵",
+  "🗺️",
+  "💍",
+  "🧭",
+  "🔮",
+  "💡",
+  "📚",
+  "🔑",
+  "💼",
+  "🎈",
+  "🧸",
+  "🪁",
+  "🪀",
+  "🔵",
+  "🟠",
+  "🟢",
+  "🟣",
+  "🟡",
+  "🟤",
+  "⚫",
+  "⚪",
+  "🟥",
+  "🟧",
+  "🟨",
+  "🟩",
+  "🟦",
+  "🟪",
+  "🟫",
+  "🖤",
+  "🤍",
+  "💣",
+  "🛁",
+  "🛌",
+  "🔒",
+  "🔓",
+  "🚿",
+  "🛒",
+  "🎁",
+  "🧧",
+  "🎀",
+  "🎊",
+  "🎉",
+  "🎎",
+  "🏮",
+  "🎐",
+  "🧨",
+  "🎈",
+  "🪅",
+  "🪆",
+  "🧩",
+  "🧸",
+  "🪡",
+  "🪢",
+  "🪃",
+  "🪄",
+  "🪅",
+  "🪆",
+  "🪜",
+  "🪠",
+  "🪤",
+  "🪣",
+  "🪥",
+  "🪦",
+  "🪧",
+  "🪨",
+  "🪩",
+  "🪪",
+  "🪫",
+  "🪬",
+  "🪭",
+  "🪮",
+  "🪯",
+  "🪰",
+  "🪱",
+  "🪲",
+  "🪳",
+  "🪴",
+  "🪵",
+  "🪶",
+  "🪷",
+  "🪸",
+  "🪹",
+  "🪺",
+  "🪻",
+  "🪼",
+  "🪽",
+  "🪿",
+  "🫀",
+  "🫁",
+  "🫂",
+  "🫐",
+  "🫑",
+  "🫒",
+  "🫓",
+  "🫔",
+  "🫕",
+  "🫖",
+  "🫗",
+  "🫘",
+  "🫙",
+  "🫚",
+  "🫛",
+  "🫠",
+  "🫡",
+  "🫢",
+  "🫣",
+  "🫤",
+  "🫥",
+  "🫦",
+  "🫧",
+  "🫨",
+  "🫮",
+  "🫯",
+  "🫰",
+  "🫱",
+  "🫲",
+  "🫳",
+  "🫴",
+  "🫵",
+  "🫶",
+  "🫷",
+  "🫸",
+];
+
+const emoji = ["📍"];
+
+const events = {
+  // ABRIL
+  "2024-04-26": "Castelãos (Macedo de Cavaleiros)",
+  // MAIO
+  "2024-05-17": "Vila de Ala (Mogadouro)",
+  // JUNHO
+  "2024-06-14": "Selhariz",
+  "2024-06-20": "Desconhecido",
+  // JULHO
+  "2024-07-11": "Sanguinhedo",
+  "2024-07-20": "Meixedo (Tarouca)",
+  "2024-07-25": "Valença do Douro",
+  "2024-07-26": "Lagobom (Pedras Salgadas)",
+  "2024-07-27": "São Pedro Velho",
+  // AGOSTO
+  "2024-08-03": "Gravelos (Vila Real)",
+  "2024-08-07": "Pinheiro Velho",
+  "2024-08-08": "Empresário Paulo (Chaves)",
+  "2024-08-09": "Empresário Liberio",
+  "2024-08-10": "Gojim",
+  "2024-08-11": "Abaças (Vila Real)",
+  "2024-08-12": "Lombo",
+  "2024-08-13": "Sobreda",
+  "2024-08-15": "Peredo",
+  "2024-08-16": "Argeriz",
+  "2024-08-17": "Seixo de Manhoses",
+  "2024-08-18": "Sambade",
+  "2024-08-20": "Brinço (Macedo)",
+  "2024-08-23": "Sousa",
+};
+
+// Calendar creation helper functions
+function createMonthHeader(month) {
+  const header = document.createElement("h2");
+  header.textContent = MONTHS[month - 4];
+  return header;
+}
+
+function createWeekdaysRow() {
+  const weekdaysDiv = document.createElement("div");
+  weekdaysDiv.className = "weekdays";
+  WEEKDAYS.forEach((day) => {
+    const dayDiv = document.createElement("div");
+    dayDiv.textContent = day;
+    weekdaysDiv.appendChild(dayDiv);
+  });
+  return weekdaysDiv;
+}
+
+function createDayElement(day, dateStr, events) {
+  const li = document.createElement("li");
+  const span = document.createElement("span");
+  span.textContent = day;
+
+  if (events[dateStr]) {
+    const locationDiv = document.createElement("div");
+    locationDiv.className = "location";
+    locationDiv.textContent = events[dateStr];
+    li.append(span, locationDiv);
+
+    // Add special class and ID for Sanguinhedo event
+    if (dateStr === "2024-07-11") {
+      li.classList.add("sanguinhedo-event");
+      li.id = "sanguinhedo-event"; // Add this line
+    }
+  } else {
+    span.className = "no-location";
+    li.appendChild(span);
+  }
+
+  return li;
+}
+
+function formatDateString(year, month, day) {
+  return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(
+    2,
+    "0"
+  )}`;
+}
+
+function createCalendar(month, year) {
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
+  const daysInMonth = lastDay.getDate();
+  const startingDay = firstDay.getDay() || 7; // Convert Sunday (0) to 7
+
+  const calendar = document.createElement("div");
+  calendar.className = "calendar";
+
+  calendar.appendChild(createMonthHeader(month));
+  calendar.appendChild(createWeekdaysRow());
+
+  const daysUl = document.createElement("ul");
+  daysUl.className = "days";
+
+  // Add empty cells for days before the first of the month
+  Array.from({ length: startingDay - 1 }).forEach(() => {
+    const emptyLi = document.createElement("li");
+    emptyLi.className = "empty";
+    daysUl.appendChild(emptyLi);
+  });
+
+  // Add days of the month
+  Array.from({ length: daysInMonth }).forEach((_, index) => {
+    const day = index + 1;
+    const dateStr = formatDateString(year, month, day);
+    const dayElement = createDayElement(day, dateStr, events);
+    daysUl.appendChild(dayElement);
+  });
+
+  calendar.appendChild(daysUl);
+  return calendar;
+}
+
+// Event handling
+function handleLocationClick(event) {
+  event.preventDefault();
+  const locationName = event.target.textContent.split(" ")[0]; // Remove emoji
+  const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+    locationName
+  )}&travelmode=driving`;
+  window.open(googleMapsUrl, "_blank");
+}
+
+function initializeCalendars() {
+  const container = document.getElementById("calendar-container");
+  const year = 2024;
+
+  // Generate calendars for April through October
+  Array.from({ length: 7 }, (_, i) => i + 4).forEach((month) => {
+    const calendar = createCalendar(month, year);
+    container.appendChild(calendar);
+  });
+
+  // Add styles and event listeners
   document.querySelectorAll(".days li").forEach((li) => {
     if (li.querySelector("span.no-location")) {
       li.classList.add("no-location");
     }
   });
 
-  document.querySelectorAll(".calendar").forEach((locationElement) => {
-    locationElement.classList.add("fade-in");
-  });
+  document
+    .querySelectorAll(".calendar")
+    .forEach((cal) => cal.classList.add("fade-in"));
 
-  // Define an array of emojis
-  const emojis = [
-    "🌍",
-    "🌟",
-    "🚀",
-    "🌈",
-    "⚡",
-    "🔥",
-    "🎉",
-    "💫",
-    "✨",
-    "🌴",
-    "🍀",
-    "🌺",
-    "🌻",
-    "🍄",
-    "🌵",
-    "🍁",
-    "🎄",
-    "❄️",
-    "🎃",
-    "👻",
-    "🐉",
-    "🦄",
-    "🧜‍♀️",
-    "🐳",
-    "🦋",
-    "🐝",
-    "🍒",
-    "🍑",
-    "🥥",
-    "🍕",
-    "🍣",
-    "🍺",
-    "🥂",
-    "🚗",
-    "🛸",
-    "🏰",
-    "🗽",
-    "🎡",
-    "🚀",
-    "⛵",
-    "🗺️",
-    "💍",
-    "🧭",
-    "🔮",
-    "💡",
-    "📚",
-    "🔑",
-    "💼",
-    "🎈",
-    "🧸",
-    "🪁",
-    "🪀",
-    "🔵",
-    "🟠",
-    "🟢",
-    "🟣",
-    "🟡",
-    "🟤",
-    "⚫",
-    "⚪",
-    "🟥",
-    "🟧",
-    "🟨",
-    "🟩",
-    "🟦",
-    "🟪",
-    "🟫",
-    "🖤",
-    "🤍",
-    "💣",
-    "🛁",
-    "🛌",
-    "🔒",
-    "🔓",
-    "🚿",
-    "🛒",
-    "🎁",
-    "🧧",
-    "🎀",
-    "🎊",
-    "🎉",
-    "🎎",
-    "🏮",
-    "🎐",
-    "🧨",
-    "🎈",
-    "🪅",
-    "🪆",
-    "🧩",
-    "🧸",
-    "🪡",
-    "🪢",
-    "🪃",
-    "🪄",
-    "🪅",
-    "🪆",
-    "🪜",
-    "🪠",
-    "🪤",
-    "🪣",
-    "🪥",
-    "🪦",
-    "🪧",
-    "🪨",
-    "🪩",
-    "🪪",
-    "🪫",
-    "🪬",
-    "🪭",
-    "🪮",
-    "🪯",
-    "🪰",
-    "🪱",
-    "🪲",
-    "🪳",
-    "🪴",
-    "🪵",
-    "🪶",
-    "🪷",
-    "🪸",
-    "🪹",
-    "🪺",
-    "🪻",
-    "🪼",
-    "🪽",
-    "🪿",
-    "🫀",
-    "🫁",
-    "🫂",
-    "🫐",
-    "🫑",
-    "🫒",
-    "🫓",
-    "🫔",
-    "🫕",
-    "🫖",
-    "🫗",
-    "🫘",
-    "🫙",
-    "🫚",
-    "🫛",
-    "🫠",
-    "🫡",
-    "🫢",
-    "🫣",
-    "🫤",
-    "🫥",
-    "🫦",
-    "🫧",
-    "🫨",
-    "🫮",
-    "🫯",
-    "🫰",
-    "🫱",
-    "🫲",
-    "🫳",
-    "🫴",
-    "🫵",
-    "🫶",
-    "🫷",
-    "🫸",
-  ];
-
-  const emoji = ["📍"];
-
+  // Add location click handlers and emojis
   document.querySelectorAll(".location").forEach((locationElement) => {
-    locationElement.addEventListener("click", function (event) {
-      event.preventDefault(); // Prevent the default action, which is redundant here but shown for completeness
-      const locationName = this.textContent; // Ensure to trim the textContent to remove the added emoji and spaces
-      // Construct the URL for Google Maps in driving mode with the current location as the origin (implicitly) and the specified location as the destination
-      const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-        locationName // Assuming the location name is the first part before the emoji
-      )}&travelmode=driving`;
-      window.open(googleMapsUrl, "_blank"); // Open Google Maps in a new tab with the specified route
-    });
-
-    // Append a random emoji to each location name
-    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+    locationElement.addEventListener("click", handleLocationClick);
+    const randomEmoji = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
     locationElement.textContent += ` ${randomEmoji}`;
   });
+}
 
+// Service Worker Registration
+function registerServiceWorker() {
   if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("/rjb24/service-worker.js").then(
-        (registration) => {
-          console.log(
-            "ServiceWorker registration successful with scope: ",
-            registration.scope
-          );
-        },
-        (err) => {
-          console.log("ServiceWorker registration failed: ", err);
-        }
-      );
+    window.addEventListener("load", async () => {
+      try {
+        const registration = await navigator.serviceWorker.register(
+          "/rjb24/service-worker.js"
+        );
+        console.log(
+          "ServiceWorker registration successful with scope:",
+          registration.scope
+        );
+      } catch (err) {
+        console.error("ServiceWorker registration failed:", err);
+      }
     });
   }
+}
 
-  const dayElement = document.getElementById("day-11");
+// Initialize when DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
+  initializeCalendars();
+  registerServiceWorker();
+
+  const dayElement = document.getElementById("sanguinhedo-event");
+
+  // Add CSS for animations dynamically
+  const styleSheet = document.createElement("style");
+  styleSheet.textContent = `
+    #sanguinhedo-event {
+      position: relative;
+      overflow: visible;
+      animation: shake 0.5s ease-in-out infinite;
+    }
+  `;
+  document.head.appendChild(styleSheet);
 
   function createFireEmoji() {
+    if (!dayElement) {
+      console.log("Sanguinhedo element not found");
+      return;
+    }
+
     const emoji = document.createElement("div");
     emoji.classList.add("emoji");
     emoji.textContent = "🔥";
 
     // Randomize size and position
-    const size = Math.random() * 20 + 30; // Size between 10px and 30px
-    const position = Math.random() * 100; // Position between 0% and 100%
-    const duration = Math.random() * 2 + 1; // Duration between 1s and 3s
+    const size = Math.random() * 20 + 30;
+    const position = Math.random() * 80 + 10; // Keep emojis more centered (10% to 90%)
+    const duration = Math.random() * 2 + 1;
 
-    emoji.style.fontSize = `${size}px`;
-    emoji.style.left = `${position}%`;
-    emoji.style.animation = `emoji-grow-fade ${duration}s infinite`;
+    emoji.style.cssText = `
+      font-size: ${size}px;
+      left: ${position}%;
+      animation: emoji-grow-fade ${duration}s ease-out forwards;
+    `;
 
     dayElement.appendChild(emoji);
 
-    // Remove emoji after animation ends to prevent overflow
+    // Remove emoji after animation ends
     setTimeout(() => {
-      dayElement.removeChild(emoji);
+      if (emoji.parentNode === dayElement) {
+        dayElement.removeChild(emoji);
+      }
     }, duration * 1000);
   }
 
-  // Create multiple fire emojis at random intervals
-  setInterval(createFireEmoji, 500);
-
-  // const nyanCatContainer = document.getElementById("nyan-cat-container");
-
-  // function createNyanCat() {
-  //   const nyanCat = document.createElement("div");
-  //   nyanCat.classList.add("nyan-cat");
-
-  //   const img = document.createElement("img");
-  //   img.src =
-  //     "https://static.wikia.nocookie.net/nyancat/images/f/fe/Nyan_Balloon.gif/revision/latest?cb=20230124014716"; // Transparent background Nyan Cat GIF
-
-  //   nyanCat.appendChild(img);
-
-  //   // Randomize the vertical position
-  //   const position = Math.random() * 100; // Position between 0% and 100%
-  //   nyanCat.style.top = `${position}%`;
-
-  //   nyanCatContainer.appendChild(nyanCat);
-
-  //   // Remove Nyan Cat after animation ends to prevent overflow
-  //   setTimeout(() => {
-  //     nyanCatContainer.removeChild(nyanCat);
-  //   }, 5000); // Match the duration of the fly animation
-  // }
-
-  // // Create multiple Nyan Cats at random intervals
-  // setInterval(createNyanCat, 10000);
+  // Start the animation with a shorter interval
+  if (dayElement) {
+    console.log("Starting fire animation");
+    setInterval(createFireEmoji, 300); // Increased frequency for more visible effect
+  } else {
+    console.log("Sanguinhedo element not found for animation");
+  }
 });
