@@ -4,8 +4,8 @@ const MONTHS = [
   "JUNHO",
   "JULHO",
   "AGOSTO",
-  // "SETEMBRO",
-  // "OUTUBRO",
+  "SETEMBRO",
+  "OUTUBRO",
 ];
 
 const WEEKDAYS = ["SEG", "TER", "QUA", "QUI", "SEX", "SÁB", "DOM"];
@@ -178,34 +178,48 @@ const emoji = ["📍"];
 
 const events = {
   // ABRIL
-  "2024-04-26": "Castelãos (Macedo de Cavaleiros)",
+  "2025-04-26": "Castelãos (Macedo de Cavaleiros)",
   // MAIO
-  "2024-05-17": "Vila de Ala (Mogadouro)",
+  "2025-05-17": "Vila de Ala (Mogadouro)",
   // JUNHO
-  "2024-06-14": "Selhariz",
-  "2024-06-20": "Desconhecido",
+  "2025-06-14": "Selhariz",
+  "2025-06-20": "Desconhecido",
   // JULHO
-  "2024-07-11": "Sanguinhedo",
-  "2024-07-20": "Meixedo (Tarouca)",
-  "2024-07-25": "Valença do Douro",
-  "2024-07-26": "Lagobom (Pedras Salgadas)",
-  "2024-07-27": "São Pedro Velho",
+  "2025-07-11": "Sanguinhedo",
+  "2025-07-20": "Meixedo (Tarouca)",
+  "2025-07-25": "Valença do Douro",
+  "2025-07-26": "Lagobom (Pedras Salgadas)",
+  "2025-07-27": "São Pedro Velho",
   // AGOSTO
-  "2024-08-03": "Gravelos (Vila Real)",
-  "2024-08-07": "Pinheiro Velho",
-  "2024-08-08": "Empresário Paulo (Chaves)",
-  "2024-08-09": "Empresário Liberio",
-  "2024-08-10": "Gojim",
-  "2024-08-11": "Abaças (Vila Real)",
-  "2024-08-12": "Lombo",
-  "2024-08-13": "Sobreda",
-  "2024-08-15": "Peredo",
-  "2024-08-16": "Argeriz",
-  "2024-08-17": "Seixo de Manhoses",
-  "2024-08-18": "Sambade",
-  "2024-08-20": "Brinço (Macedo)",
-  "2024-08-23": "Sousa",
+  "2025-08-03": "Gravelos (Vila Real)",
+  "2025-08-07": "Pinheiro Velho",
+  "2025-08-08": "Empresário Paulo (Chaves)",
+  "2025-08-09": "Empresário Liberio",
+  "2025-08-10": "Gojim",
+  "2025-08-11": "Abaças (Vila Real)",
+  "2025-08-12": "Lombo",
+  "2025-08-13": "Sobreda",
+  "2025-08-15": "Peredo",
+  "2025-08-16": "Argeriz",
+  "2025-08-17": "Seixo de Manhoses",
+  "2025-08-18": "Sambade",
+  "2025-08-20": "Brinço (Macedo)",
+  "2025-08-23": "Sousa",
+  // SETEMBRO
+  "2025-09-06": "Mirão (Resende)",
 };
+
+const TOTAL_EVENTS = Object.keys(events).length;
+const totalElement = document.createElement("div");
+totalElement.className = "total-events";
+totalElement.textContent = `Total de Eventos: ${TOTAL_EVENTS}`;
+
+// Calendar creation helper functions
+function createMonthHeader(month) {
+  const header = document.createElement("h2");
+  header.textContent = MONTHS[month - 4];
+  return header;
+}
 
 // Calendar creation helper functions
 function createMonthHeader(month) {
@@ -237,7 +251,7 @@ function createDayElement(day, dateStr, events) {
     li.append(span, locationDiv);
 
     // Add special class and ID for Sanguinhedo event
-    if (dateStr === "2024-07-11") {
+    if (dateStr === "2025-07-11") {
       li.classList.add("sanguinhedo-event");
       li.id = "sanguinhedo-event"; // Add this line
     }
@@ -257,10 +271,12 @@ function formatDateString(year, month, day) {
 }
 
 function createCalendar(month, year) {
-  const firstDay = new Date(year, month, 1);
-  const lastDay = new Date(year, month + 1, 0);
+  const firstDay = new Date(year, month - 1, 1); // Adjust month to be 0-based for Date object
+  const lastDay = new Date(year, month, 0);
   const daysInMonth = lastDay.getDate();
-  const startingDay = firstDay.getDay() || 7; // Convert Sunday (0) to 7
+
+  // Special case for April 2024 which starts on Tuesday (2)
+  let startingDay = month === 4 ? 2 : firstDay.getDay() || 7; // Convert Sunday (0) to 7
 
   const calendar = document.createElement("div");
   calendar.className = "calendar";
@@ -302,7 +318,7 @@ function handleLocationClick(event) {
 
 function initializeCalendars() {
   const container = document.getElementById("calendar-container");
-  const year = 2024;
+  const year = 2025;
 
   // Generate calendars for April through October
   Array.from({ length: 7 }, (_, i) => i + 4).forEach((month) => {
@@ -327,6 +343,8 @@ function initializeCalendars() {
     const randomEmoji = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
     locationElement.textContent += ` ${randomEmoji}`;
   });
+  // Add total element before calendars
+  container.appendChild(totalElement);
 }
 
 // Service Worker Registration
