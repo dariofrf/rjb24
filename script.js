@@ -184,6 +184,7 @@ const events = {
   // JUNHO
   "2025-06-14": "Selhariz",
   "2025-06-20": "Desconhecido",
+  "2025-06-22": "Pinhão (Oliveira de Azeméis)",
   // JULHO
   "2025-07-11": "Sanguinhedo",
   "2025-07-20": "Meixedo (Tarouca)",
@@ -192,13 +193,14 @@ const events = {
   "2025-07-27": "São Pedro Velho",
   // AGOSTO
   "2025-08-03": "Gravelos (Vila Real)",
+  "2025-08-12": "Lombo",
   "2025-08-07": "Pinheiro Velho",
   "2025-08-08": "Empresário Paulo (Chaves)",
   "2025-08-09": "Empresário Liberio",
   "2025-08-10": "Gojim",
   "2025-08-11": "Abaças (Vila Real)",
-  "2025-08-12": "Lombo",
   "2025-08-13": "Sobreda",
+  "2025-08-14": "Trabanca (Macedo)",
   "2025-08-15": "Peredo",
   "2025-08-16": "Argeriz",
   "2025-08-17": "Seixo de Manhoses",
