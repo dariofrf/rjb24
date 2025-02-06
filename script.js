@@ -184,7 +184,7 @@ const events = {
   // JUNHO
   "2025-06-14": "Selhariz",
   "2025-06-20": "Desconhecido",
-  "2025-06-22": "Pinhão (Oliveira de Azeméis)",
+  "2025-06-21": "Pinhão (Oliveira de Azeméis)",
   // JULHO
   "2025-07-11": "Sanguinhedo",
   "2025-07-20": "Meixedo (Tarouca)",

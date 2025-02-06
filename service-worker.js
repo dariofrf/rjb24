@@ -1,4 +1,4 @@
-const CACHE_NAME = "v1";
+const CACHE_NAME = "v2";
 const urlsToCache = [
   // "/rjb24/calendar.html",
   // "/rjb24/styles.css", // Add path to your CSS file if you have
