@@ -200,7 +200,7 @@ const events = {
   "2025-08-10": "Gojim",
   "2025-08-11": "Abaças (Vila Real)",
   "2025-08-13": "Sobreda",
-  "2025-08-14": "Trabanca (Macedo)",
+  "2025-08-14": "Travanca (Macedo)",
   "2025-08-15": "Peredo",
   "2025-08-16": "Argeriz",
   "2025-08-17": "Seixo de Manhoses",
