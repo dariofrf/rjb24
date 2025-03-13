@@ -375,6 +375,19 @@ function registerServiceWorker() {
 
 // Initialize when DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
+  setNoCacheHeaders();
+  
+  // Force reload if older than 24 hours
+  const lastVisit = localStorage.getItem('lastVisit');
+  const now = new Date().getTime();
+  
+  if (lastVisit && (now - parseInt(lastVisit)) > 24 * 60 * 60 * 1000) {
+    window.location.reload(true);
+  }
+  
+  // Store current visit time
+  localStorage.setItem('lastVisit', now.toString());
+  
   initializeCalendars();
   registerServiceWorker();
 
@@ -428,5 +441,50 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(createFireEmoji, 300); // Increased frequency for more visible effect
   } else {
     console.log("Sanguinhedo element not found for animation");
+  }
+});
+
+// Add no-cache headers function
+function setNoCacheHeaders() {
+  // Set meta tags to prevent caching
+  const metaTags = [
+    { httpEquiv: "Cache-Control", content: "no-cache, no-store, must-revalidate" },
+    { httpEquiv: "Pragma", content: "no-cache" },
+    { httpEquiv: "Expires", content: "0" }
+  ];
+  
+  metaTags.forEach(tagInfo => {
+    const metaTag = document.createElement('meta');
+    metaTag.httpEquiv = tagInfo.httpEquiv;
+    metaTag.content = tagInfo.content;
+    document.head.appendChild(metaTag);
+  });
+}
+
+self.addEventListener('fetch', event => {
+  const url = new URL(event.request.url);
+  
+  // Don't cache HTML, JS or data files
+  if (url.pathname.endsWith('.html') || 
+      url.pathname.endsWith('.js') || 
+      url.pathname.includes('/data/')) {
+    
+    event.respondWith(
+      fetch(event.request, { 
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        }
+      })
+    );
+  } else {
+    // Handle other resources normally
+    event.respondWith(
+      caches.match(event.request).then(response => {
+        return response || fetch(event.request);
+      })
+    );
   }
 });
