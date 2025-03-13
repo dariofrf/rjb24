@@ -185,8 +185,12 @@ const events = {
   "2025-06-14": "Selhariz",
   "2025-06-20": "Desconhecido",
   "2025-06-21": "Pinhão (Oliveira de Azeméis)",
+  "2025-06-28": "Desconhecido",
+  "2025-06-29": "Desconhecido",
   // JULHO
   "2025-07-11": "Sanguinhedo",
+  "2025-07-18": "Desconhecido",
+  "2025-07-19": "Desconhecido",
   "2025-07-20": "Meixedo (Tarouca)",
   "2025-07-25": "Valença do Douro",
   "2025-07-26": "Lagobom (Pedras Salgadas)",
@@ -209,6 +213,7 @@ const events = {
   "2025-08-23": "Sousa",
   // SETEMBRO
   "2025-09-06": "Mirão (Resende)",
+  "2025-09-20": "Castelãos (Macedo de Cavaleiros)",
 };
 
 const TOTAL_EVENTS = Object.keys(events).length;
