@@ -180,6 +180,7 @@ const events = {
   // ABRIL
   "2025-04-26": "Castelãos (Macedo de Cavaleiros)",
   // MAIO
+  "2025-05-10": "Vila Franca (Macedo de Cavaleiros)",
   "2025-05-17": "Vila de Ala (Mogadouro)",
   // JUNHO
   "2025-06-14": "Selhariz",
@@ -214,6 +215,8 @@ const events = {
   // SETEMBRO
   "2025-09-06": "Mirão (Resende)",
   "2025-09-20": "Castelãos (Macedo de Cavaleiros)",
+  // OUTUBRO
+  "2025-10-04": "Morais (Macedo de Cavaleiros)",
 };
 
 const TOTAL_EVENTS = Object.keys(events).length;
