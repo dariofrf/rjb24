@@ -187,7 +187,6 @@ const events = {
   "2025-06-20": "Desconhecido",
   "2025-06-21": "Pinhão (Oliveira de Azeméis)",
   "2025-06-28": "RESERVADO",
-  "2025-06-29": "RESERVADO",
   // JULHO
   "2025-07-11": "Sanguinhedo",
   "2025-07-18": "RESERVADO",
