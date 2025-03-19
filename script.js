@@ -183,10 +183,11 @@ const events = {
   "2025-05-10": "Vila Franca (Macedo de Cavaleiros)",
   "2025-05-17": "Vila de Ala (Mogadouro)",
   // JUNHO
+  "2025-06-07": "Ester de Cima - Castro Daire",
   "2025-06-14": "Selhariz",
   "2025-06-20": "Desconhecido",
   "2025-06-21": "Pinhão (Oliveira de Azeméis)",
-  "2025-06-28": "RESERVADO",
+  "2025-06-28": "Marinha Grande",
   // JULHO
   "2025-07-11": "Sanguinhedo",
   "2025-07-18": "RESERVADO",
