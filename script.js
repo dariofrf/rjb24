@@ -197,6 +197,7 @@ const events = {
   "2025-07-26": "Lagobom (Pedras Salgadas)",
   "2025-07-27": "São Pedro Velho",
   // AGOSTO
+  "2025-08-02": "Ribeirada de Fraguas (Albergaria-a-Velha)",
   "2025-08-03": "Gravelos (Vila Real)",
   "2025-08-06": "Lombo",
   "2025-08-07": "Pinheiro Velho",
