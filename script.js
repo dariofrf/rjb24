@@ -185,7 +185,7 @@ const events = {
   // JUNHO
   "2025-06-07": "Ester de Cima - Castro Daire",
   "2025-06-14": "Selhariz",
-  "2025-06-20": "Desconhecido",
+  "2025-06-20": "Sobredo",
   "2025-06-21": "Pinhão (Oliveira de Azeméis)",
   "2025-06-28": "Marinha Grande",
   // JULHO
