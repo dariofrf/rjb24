@@ -465,7 +465,7 @@ function setNoCacheHeaders() {
   });
 }
 
-self.addEventListener('fetch', event => {
+self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
   
   // Don't cache HTML, JS or data files
@@ -474,21 +474,41 @@ self.addEventListener('fetch', event => {
       url.pathname.includes('/data/')) {
     
     event.respondWith(
-      fetch(event.request, { 
-        cache: 'no-store',
-        headers: {
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0'
-        }
-      })
+      fetch(event.request, { cache: 'no-store' })
     );
   } else {
-    // Handle other resources normally
     event.respondWith(
-      caches.match(event.request).then(response => {
+      caches.match(event.request).then((response) => {
         return response || fetch(event.request);
       })
     );
   }
 });
+
+// self.addEventListener('fetch', event => {
+//   const url = new URL(event.request.url);
+  
+//   // Don't cache HTML, JS or data files
+//   if (url.pathname.endsWith('.html') || 
+//       url.pathname.endsWith('.js') || 
+//       url.pathname.includes('/data/')) {
+    
+//     event.respondWith(
+//       fetch(event.request, { 
+//         cache: 'no-store',
+//         headers: {
+//           'Cache-Control': 'no-cache, no-store, must-revalidate',
+//           'Pragma': 'no-cache',
+//           'Expires': '0'
+//         }
+//       })
+//     );
+//   } else {
+//     // Handle other resources normally
+//     event.respondWith(
+//       caches.match(event.request).then(response => {
+//         return response || fetch(event.request);
+//       })
+//     );
+//   }
+// });
