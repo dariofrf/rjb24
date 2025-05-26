@@ -176,6 +176,7 @@ const EMOJIS = [
 
 const emoji = ["📍"];
 
+
 const events = {
   // ABRIL
   "2025-04-26": "Castelãos (Macedo de Cavaleiros)",
