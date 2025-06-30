@@ -191,8 +191,7 @@ const events = {
   "2025-06-28": "Marinha Grande",
   // JULHO
   "2025-07-11": "Sanguinhedo",
-  "2025-07-18": "RESERVADO",
-  "2025-07-19": "RESERVADO",
+  "2025-07-19": "Amendoeira (Macedo de Cavaleiros)",
   "2025-07-20": "Meixedo (Tarouca)",
   "2025-07-25": "Valença do Douro",
   "2025-07-26": "Lagobom (Pedras Salgadas)",
@@ -217,6 +216,7 @@ const events = {
   "2025-08-24": "Sezulfe (Macedo)",
   // SETEMBRO
   "2025-09-06": "Mirão (Resende)",
+  "2025-09-07": "Valpaços",
   "2025-09-20": "Castelãos (Macedo de Cavaleiros)",
   // OUTUBRO
   "2025-10-04": "Morais (Macedo de Cavaleiros)",
