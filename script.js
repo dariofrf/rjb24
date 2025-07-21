@@ -199,6 +199,7 @@ const events = {
   // AGOSTO
   "2025-08-02": "Ribeirada de Fráguas (Albergaria-a-Velha)",
   "2025-08-03": "Gravelos (Vila Real)",
+  "2025-08-04": "Macedo de Cavaleiros",
   "2025-08-06": "Lombo",
   "2025-08-07": "Pinheiro Velho",
   "2025-08-08": "Santiago da Ribeira de Alhariz",
