@@ -214,7 +214,6 @@ const events = {
   "2025-08-18": "Sambade",
   "2025-08-21": "Brinço (Macedo)",
   "2025-08-23": "Sousa",
-  "2025-08-25": "Sezulfe (Macedo)",
   // SETEMBRO
   "2025-09-06": "Mirão (Resende)",
   "2025-09-07": "Valpaços",
